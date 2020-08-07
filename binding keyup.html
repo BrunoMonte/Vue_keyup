@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event e Prevent</title>
+</head>
+
+    
+<body>
+    <div id="app">                 
+        <input type="text" v-model="DigitarTexto"
+        v-on:keyup.enter="alterarNome()"/>               <!--Comando .enter, dando enter ja chama submit do formulário-->
+
+        <ul>
+            <li v-for="item in array">
+                {{item}}
+            </li>
+        </ul>
+         
+        
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> <!--Primeiro carrega comando, após faz script-->
+
+    <script>
+        new Vue ({          
+            
+            el: '#app',    
+            data:{              
+                DigitarTexto: "",
+                array:[],
+            },
+            methods: {
+                alterarNome(){  
+                    this.array.push(this.DigitarTexto)    //adicionar nome colocado na barra
+                    this.DigitarTexto = "";     // Toda vez para manipular uma propriedade, trabalhamos com this.
+                }
+            },
+            
+        })
+
+
+    </script>
+
+    
+</body>
+</html>
